@@ -4,8 +4,11 @@ import { IVehicleMake } from "@/types/propTypes";
 export async function GET() {
     const externalApiUrl = process.env.API_URL_GET_MAKES;
 
+    if (!externalApiUrl) {
+        throw new Error("Environment variable is not defined");
+    }
+
     try {
-        // @ts-ignore
         const response = await fetch(externalApiUrl);
 
         if (!response.ok) {
