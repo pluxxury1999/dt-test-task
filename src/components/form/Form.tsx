@@ -1,5 +1,4 @@
 import FormFields from "@/components/form-fields/FormFields";
-import styles from "./Form.module.css";
 
 export default async function Form() {
     const res = await fetch("http://localhost:3000/api/vehicleMakesId", {
@@ -15,7 +14,7 @@ export default async function Form() {
     const years = Array.from({ length: 2024 - 2015 + 1 }, (_, i) => 2015 + i);
 
     return (
-        <div className={styles.wrapper}>
+        <div>
             <FormFields makes={data} years={years} />
         </div>
     );

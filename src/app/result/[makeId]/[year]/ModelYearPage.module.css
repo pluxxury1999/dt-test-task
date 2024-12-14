@@ -1,0 +1,27 @@
+.wrapper {
+    @apply flex flex-col justify-center items-center h-screen
+}
+
+.title {
+    @apply text-3xl font-semibold
+}
+
+.subTitle {
+    @apply mb-5
+}
+
+.listWrapper {
+    @apply space-y-2 p-4 bg-white rounded shadow w-2/5;
+}
+
+.listItem {
+    @apply border-b last:border-b-0 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between;
+}
+
+.mark {
+    @apply font-semibold text-gray-800;
+}
+
+.model {
+    @apply text-gray-600;
+}

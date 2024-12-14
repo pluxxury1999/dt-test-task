@@ -1,12 +1,7 @@
 import { IModelYearPageProps } from "@/types/propTypes";
+import { IVehicleModels } from "@/types/propTypes";
 import { generateStaticParams } from "./generateStaticParams";
-
-interface IItem {
-    Make_ID: number;
-    Make_Name: string;
-    Model_ID: number;
-    Model_Name: string;
-}
+import styles from "./ModelYearPage.module.css";
 
 export default async function ModelYearPage({ params }: IModelYearPageProps) {
     const { makeId, year } = await params;
@@ -22,17 +17,28 @@ export default async function ModelYearPage({ params }: IModelYearPageProps) {
     }
 
     if (data.Results.length === 0) {
-        return <div>Nothing Found</div>;
+        return (
+            <div className={styles.wrapper}>
+                <h3 className={styles.title}>Nothing Found</h3>
+            </div>
+        );
     }
 
     return (
-        <ul>
-            {data.Results.map((item: IItem) => (
-                <li key={item.Make_ID + item.Model_Name}>
-                    <p>name: {item.Make_Name}</p>
-                    <p>model: {item.Model_Name}</p>
-                </li>
-            ))}
-        </ul>
+        <section className={styles.wrapper}>
+            <h3 className={styles.title}>Search Results</h3>
+            <p className={styles.subTitle}>picked year: {year}</p>
+            <ul className={styles.listWrapper}>
+                {data.Results.map((item: IVehicleModels) => (
+                    <li
+                        key={item.Make_ID + item.Model_Name}
+                        className={styles.listItem}
+                    >
+                        <p className={styles.mark}>{item.Make_Name}</p>
+                        <p className={styles.model}>{item.Model_Name}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
     );
 }
