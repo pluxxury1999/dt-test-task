@@ -68,4 +68,12 @@ Instead of using `React.Suspense`, we used the `Next.JS Routing` feature, and th
 
 Also added `env.sample`(best practice) to the repository
 
+**About optional task**
+
+While trying to complete an additional task, I encountered the problem shown in the figure below.
+![img.png](img.png)
+I found several materials about this problem, but I was unable to solve it.
+
+The result of this problem is that the project cannot be built either on the local machine or on GitPages using GitActions :((
+
 **Thanks for attention!**
