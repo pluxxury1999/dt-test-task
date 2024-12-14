@@ -2,18 +2,7 @@
 
 import React from "react";
 import styles from "./Select.module.css";
-
-interface IOption {
-    value: number | string;
-    label: string;
-}
-
-interface ISelectProps {
-    value: number | string | undefined;
-    onChange: (newValue: number | string) => void;
-    options: IOption[];
-    placeholder?: string;
-}
+import { ISelectProps } from "@/types/propTypes";
 
 export default function Select({
     value,

@@ -2,10 +2,7 @@ import Link from "next/link";
 import styles from "./Button.module.css";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-interface IButtonProps {
-    makeId: number;
-    makeYear: number;
-}
+import { IButtonProps } from "@/types/propTypes";
 
 export default function Button({ makeId, makeYear }: IButtonProps) {
     const isDisabled = !makeId && !makeYear;

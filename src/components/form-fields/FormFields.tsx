@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "@/components/button/Button";
 import Select from "@/components/select/Select"; // шлях скоригуйте під ваш проект
 import styles from "./FormFields.module.css";
-import { IVehicleMake, IFormFieldsProps } from "@/types/propTypes";
+import { IFormFieldsProps } from "@/types/propTypes";
 
 export default function FormFields({ makes, years }: IFormFieldsProps) {
     const [selectedMakeId, setSelectedMakeId] = useState<number | undefined>(
@@ -15,7 +15,7 @@ export default function FormFields({ makes, years }: IFormFieldsProps) {
     );
 
     if (!makes || makes.length === 0) {
-        return <div>Немає даних для відображення</div>;
+        return <div>No data to render</div>;
     }
 
     const makeOptions = makes.map((make) => ({
@@ -34,14 +34,14 @@ export default function FormFields({ makes, years }: IFormFieldsProps) {
                 value={selectedMakeId}
                 onChange={(val) => setSelectedMakeId(val as number)}
                 options={makeOptions}
-                placeholder="Виберіть марку"
+                placeholder="Select Mark"
             />
 
             <Select
                 value={selectedYear}
                 onChange={(val) => setSelectedYear(val as number)}
                 options={yearOptions}
-                placeholder="Виберіть рік"
+                placeholder="Select Year"
             />
 
             <Button makeId={selectedMakeId || 0} makeYear={selectedYear || 0} />
