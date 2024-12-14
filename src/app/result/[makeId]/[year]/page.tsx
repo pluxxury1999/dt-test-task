@@ -4,7 +4,7 @@ import { generateStaticParams } from "./generateStaticParams";
 import styles from "./ModelYearPage.module.css";
 
 export default async function ModelYearPage({ params }: IModelYearPageProps) {
-    const { makeId, year } = await params;
+    const { makeId, year } = params;
 
     const fetchUrl = generateStaticParams(makeId, year);
 
