@@ -25,12 +25,11 @@ export interface ISelectProps {
     placeholder?: string;
 }
 
-export interface IModelYearPageProps {
-    params: {
-        makeId: string;
-        year: string;
-    };
-}
+// export interface IModelYearPageProps {
+//     params: Promise<{ makeId: string; year: string }>;
+// }
+
+export type Params = Promise<{ makeId: string; year: string }>;
 
 export interface IVehicleModels {
     Make_ID: number;

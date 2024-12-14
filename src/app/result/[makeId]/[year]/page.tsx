@@ -1,10 +1,9 @@
-import { IModelYearPageProps } from "@/types/propTypes";
-import { IVehicleModels } from "@/types/propTypes";
+import { IVehicleModels, Params } from "@/types/propTypes";
 import { generateStaticParams } from "./generateStaticParams";
 import styles from "./ModelYearPage.module.css";
 
-export default async function ModelYearPage({ params }: IModelYearPageProps) {
-    const { makeId, year } = params;
+export default async function ModelYearPage({ params }: { params: Params }) {
+    const { makeId, year } = await params;
 
     const fetchUrl = generateStaticParams(makeId, year);
 
