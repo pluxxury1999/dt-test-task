@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
+import { IVehicleMake } from "@/types/propTypes";
 
 export async function GET() {
-    const externalApiUrl = process.env.API_URL;
+    const externalApiUrl = process.env.API_URL_GET_MAKES;
 
     try {
+        // @ts-ignore
         const response = await fetch(externalApiUrl);
 
         if (!response.ok) {
@@ -14,12 +16,14 @@ export async function GET() {
 
         const data = await response.json();
 
-        const makesId = data.Results.map((item) => {
-            return {
-                MakeId: item.MakeId,
-                MakeName: item.MakeName,
-            };
-        });
+        const makesId: IVehicleMake[] = data.Results.map(
+            (item: IVehicleMake) => {
+                return {
+                    MakeId: item.MakeId,
+                    MakeName: item.MakeName,
+                };
+            }
+        );
 
         return NextResponse.json(makesId, { status: 200 });
     } catch (error: unknown) {
